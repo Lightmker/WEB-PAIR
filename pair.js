@@ -20,10 +20,10 @@ function removeFile(FilePath) {
 
 router.get('/', async (req, res) => {
     let num = req.query.number;
-    async function PrabathPair() {
+    async function LIGHT-MDPair() {
         const { state, saveCreds } = await useMultiFileAuthState(`./session`);
         try {
-            let PrabathPairWeb = makeWASocket({
+            let LIGHT-MDPairWeb = makeWASocket({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -42,8 +42,8 @@ router.get('/', async (req, res) => {
                 }
             }
 
-            PrabathPairWeb.ev.on('creds.update', saveCreds);
-            PrabathPairWeb.ev.on("connection.update", async (s) => {
+            LIGHT-MDPairWeb.ev.on('creds.update', saveCreds);
+            LIGHT-MDPairWeb.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect } = s;
                 if (connection === "open") {
                     try {
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
                         const sessionPrabath = fs.readFileSync('./session/creds.json');
 
                         const auth_path = './session/';
-                        const user_jid = jidNormalizedUser(PrabathPairWeb.user.id);
+                        const user_jid = jidNormalizedUser(LIGHT-MDPairWeb.user.id);
 
                       function randomMegaId(length = 6, numberLength = 4) {
                       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
